@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Text Display</title>
+    <style>
+        /* Styling for the body */
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+        }
+
+        /* Styling for the output area */
+        #output {
+            margin-top: 20px; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+        }
+    </style>
+</head>
+<body>
+
+<h1>Customize Your Text</h1>
+
+<!-- Form for user input -->
+<form id="textForm">
+    <!-- Input for text color -->
+    <label for="textColor">Text Color:</label>
+    <input type="color" id="textColor" name="textColor" value="#000000"><br><br>
+
+    <!-- Input for background color -->
+    <label for="bgColor">Background Color:</label>
+    <input type="color" id="bgColor" name="bgColor" value="#ffffff"><br><br>
+
+    <!-- Textarea for the content of the text -->
+    <label for="content">Content of Text:</label><br>
+    <textarea id="content" name="content" rows="4" cols="50"></textarea><br><br>
+
+    <!-- Submit button -->
+    <button type="submit">Submit</button>
+</form>
+
+<!-- Div to display the output -->
+<div id="output"></div>
+
+<script>
+    // Add an event listener to the form to handle submission
+    document.getElementById('textForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevents the default form submission behavior
+
+        // Retrieve values from the form inputs
+        const textColor = document.getElementById('textColor').value; // Get selected text color
+        const bgColor = document.getElementById('bgColor').value; // Get selected background color
+        const content = document.getElementById('content').value; // Get text content from textarea
+
+        // Get the output div where we will display the customized text
+        const outputDiv = document.getElementById('output');
+        
+        // Styling to the output div based on user input
+        outputDiv.style.color = textColor; // Set text color
+        outputDiv.style.backgroundColor = bgColor; // Set background color
+        
+        // Display the user's content in the output div
+        outputDiv.textContent = content;
+    });
+</script>
+
+</body>
+</html>
